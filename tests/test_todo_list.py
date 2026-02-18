@@ -3,6 +3,36 @@ from lib.todo import Todo
 from lib.todo_list import TodoList
 
 """
+Given one todo
+Adds the todo to the list
+"""
+def test_todo_list_integration():
+    todo_list = TodoList()
+    todo_1 = Todo('Make breakfast')
+    todo_list.add(todo_1)
+    assert todo_list.incomplete() == [todo_1]
+
+
+
+"""
+Given multiple todos
+Returns one incomplete todo
+"""
+def test_todo_list_returns_incomplete_todos():
+    todo_list = TodoList()
+    todo_1 = Todo('Make breakfast')
+    todo_2 = Todo('Make lunch')
+    todo_3 = Todo('Make dinner')
+    todo_list.add(todo_1)
+    todo_list.add(todo_2)
+    todo_list.add(todo_3)
+    todo_1.mark_complete()
+    todo_2.mark_complete()
+    assert todo_list.incomplete() == [todo_3]
+
+
+
+"""
 Given multiple todos
 Returns two complete todos
 """
@@ -17,6 +47,8 @@ def test_todo_list_returns_complete_todos():
     todo_1.mark_complete()
     todo_2.mark_complete()
     assert todo_list.complete() == [todo_1, todo_2]
+
+
 
 """
 Given multiple todos
