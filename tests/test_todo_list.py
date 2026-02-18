@@ -6,7 +6,7 @@ from lib.todo_list import TodoList
 Given one todo
 Adds the todo to the list
 """
-def test_todo_list_integration():
+def test_todo_list_adds_one_todo():
     todo_list = TodoList()
     todo_1 = Todo('Make breakfast')
     todo_list.add(todo_1)
